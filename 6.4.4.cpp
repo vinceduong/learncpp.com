@@ -8,10 +8,21 @@ int main()
 
     for (int index{ 0 }; index < arrayLength - 1; index++)
     {
-        for (int currentIndex{ 0 }; currentIndex < arrayLength - 1; currentIndex++)
+        bool swapOccured{ false };
+
+        for (int currentIndex{ 0 }; currentIndex < arrayLength - 1 - index; currentIndex++)
         {
             if (array[currentIndex] > array[currentIndex + 1])
+            {
                 std::swap(array[currentIndex], array[currentIndex + 1]);
+                swapOccured = true;
+            }
+        }
+
+        if (!swapOccured)
+        {
+            std::cout << "Early termination on iteration " << index + 1 << std::endl;
+            break;
         }
     }
 
